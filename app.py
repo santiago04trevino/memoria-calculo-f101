@@ -17,10 +17,13 @@ base_datos_materiales = {
     "SA-285 Gr. C": {"E": 193000.0, "Sy": 205.0, "A_codo": 3.80e-4, "alta_aleacion": False}
 }
 
+# ==============================================================================
+# BASE DE DATOS DE BOQUILLAS (ACTUALIZADA CON MATERIAL Y NPS)
+# ==============================================================================
 boquillas_db = {
-    "N1 (Alimentación)": {"Q_m3h": 8820.96, "rho": 0.505, "mu": 1.09e-3, "Do_mm": 457.0, "t_nom": 4.78, "t_table": 8.34},
-    "N2 (Vapor)": {"Q_m3h": 8817.76, "rho": 0.148, "mu": 0.008e-3, "Do_mm": 457.0, "t_nom": 4.78, "t_table": 8.34},
-    "N3 (Líquido)": {"Q_m3h": 3.24, "rho": 972.79, "mu": 1.09e-3, "Do_mm": 33.4, "t_nom": 3.38, "t_table": 2.96}
+    "N1 (Alimentación)": {"NPS": "NPS 18 Sch 10S", "Material": "SA-312 TP316L", "Q_m3h": 8820.96, "rho": 0.505, "mu": 1.09e-3, "Do_mm": 457.0, "t_nom": 4.78, "t_table": 8.34},
+    "N2 (Vapor)": {"NPS": "NPS 18 Sch 10S", "Material": "SA-312 TP316L", "Q_m3h": 8817.76, "rho": 0.148, "mu": 0.008e-3, "Do_mm": 457.0, "t_nom": 4.78, "t_table": 8.34},
+    "N3 (Líquido)": {"NPS": "NPS 1 Sch 40S", "Material": "SA-312 TP316L", "Q_m3h": 3.24, "rho": 972.79, "mu": 1.09e-3, "Do_mm": 33.4, "t_nom": 3.38, "t_table": 2.96}
 }
 
 # ==============================================================================
@@ -126,6 +129,8 @@ with tab2:
         
         resultados_boq.append({
             "Boquilla": tag,
+            "Cédula": datos["NPS"],
+            "Material": datos["Material"],
             "Velocidad (m/s)": round(v_real, 2),
             "Reynolds": f"{Re:.2e}",
             "ΔP (bar)": round(dP_bar, 4),
