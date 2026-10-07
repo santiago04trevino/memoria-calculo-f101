@@ -98,7 +98,7 @@ with tab1:
             
     df_env = pd.DataFrame(resultados_env)
     
-    st.dataframe(df_env.style.applymap(
+    st.dataframe(df_env.style.map(
         lambda v: 'background-color: #d4edda; color: green;' if '✅' in str(v) else ('background-color: #f8d7da; color: red;' if '❌' in str(v) else ''),
         subset=['Dictamen']
     ), use_container_width=True)
